@@ -1,0 +1,11 @@
+[Unit]
+Description=Raspberry Pi Timed Camera Upload to Cloud Storage
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bash camera-rclone.sh -f garage -c /home/pi/.config/rclone/rclone.conf -r OneDrive:/PiPhotos
+WorkingDirectory=/home/pi/Code/watcher
+
+[Install]
+WantedBy=multi-user.target
