@@ -108,7 +108,10 @@ do
         filename="${base_filename}-${i}${file_type}"
 
         # capture the image
-        libcamera-still -o $filename --hflip --vflip --autofocus --nopreview
+        # command to be used for an arducam 16mp camera with autofocus
+#       libcamera-still -o $filename --hflip --vflip --autofocus --nopreview
+        # command for generic raspberry pi cameras
+        libcamera-still -o $filename --nopreview
         echo "Image captured as $filename"
 
         # copy the image to the RClone drive
